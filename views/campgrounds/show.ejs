@@ -51,7 +51,7 @@
                 </div>
                 <% } %> 
                 <div class="card-footer text-muted">
-                    2 days ago
+                    <%= new Date(campground.createdAt).toDateString() %>
                 </div>
             </div>
         </div>
@@ -110,8 +110,8 @@
     </div>
 
     <script>
-        const mapToken = '<%-process.env.MAPBOX_TOKEN %>';
-        const campground = '<%-JSON.stringify(campground) %>';
+        var mapToken = '<%-process.env.MAPBOX_TOKEN %>';
+        var campgroundJSON = '<%-JSON.stringify(campground) %>';
     </script>
     <script src="/javascripts/showPageMap.js"></script>
     
