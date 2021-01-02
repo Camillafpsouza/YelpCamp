@@ -16,7 +16,7 @@ map.addSource('campgrounds', {
 type: 'geojson',
 // Point to GeoJSON data. This example visualizes all M1.0+ campgrounds
 // from 12/22/15 to 1/21/16 as logged by USGS' Earthquake hazards program.
-data: campgrounds,
+data: JSON.parse(campgrounds),
 cluster: true,
 clusterMaxZoom: 14, // Max zoom to cluster points on
 clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
@@ -103,7 +103,7 @@ zoom: zoom
 // the location of the feature, with
 // description HTML from its properties.
 map.on('click', 'unclustered-point', function (e) {
-    const { popUpMarkup } = e.features[0].properties;
+    const { popUpMarkup } = e.features[0].popUpMarkup();
     const coordinates = e.features[0].geometry.coordinates.slice();
 
  

@@ -13,7 +13,7 @@
                 <% if(campground.images.length) { %> 
                 <img class="img-fluid" alt="" src="<%=campground.images[0].url%>">
                 <% } else { %>
-                    <img class="img-fluid" alt="" src="https://res.cloudinary.com/dnbxvhjte/image/upload/v1609434319/YelpCamp/lv0azdwzzs2i6c7suxsy.jpg">
+                    <img class="img-fluid" alt="" src="https://res.cloudinary.com/romantuomisto-cloud/image/upload/v1609434319/YelpCamp/lv0azdwzzs2i6c7suxsy.jpg">
                     <% } %>  
             </div>
             <div class="col-md-8">
@@ -29,6 +29,9 @@
                             <%= campground.location%>
                         </small>
                     </p>
+                    <p>
+                        <%-campground.popUpMarkup() %>
+                    </p>
                     <a class="btn btn-primary" href="/campgrounds/<%=campground._id%>">View <%=campground.title%>
                     </a>
                 </div>
@@ -39,7 +42,7 @@
 
     <script>
         const mapToken = '<%-process.env.MAPBOX_TOKEN %>';
-        const campgrounds = {features: <%-JSON.stringify(campgrounds) %>};
+        const campgrounds = {features: '<%-JSON.stringify(campgrounds) %>'};
 
     </script>
     <script src="/javascripts/clusterMap.js"></script>
